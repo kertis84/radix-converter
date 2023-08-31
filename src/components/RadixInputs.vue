@@ -4,8 +4,9 @@
             <label class="col-1 col-form-label text-light text-end" :for="'radix-' + radix">{{ radix }}</label>
             <div class="col-11">
                 <input class="form-control" type="text" :name="radix.toString()" :id="'radix-' + radix"
-                    :value="getRadixBasedValue(radix)" @input="onInputValue" />
-                <small v-if="radix === input_error_index" class="form-text text-warning">* для данного основания допустимы символы: {{ getAllowedCharsByRadix(radix) }}</small>
+                    :value="getRadixBasedValue(radix)" @input="onInputValue" :maxlength="Math.ceil(53 / Math.log2(radix))" />
+                <small v-if="radix === input_error_index" class="form-text text-warning">* для данного основания допустимы
+                    символы: {{ getAllowedCharsByRadix(radix) }}</small>
             </div>
         </div>
     </form>
@@ -28,11 +29,11 @@ const getAllowedCharsByRadix = (radix: number) => {
     let chars = ''
     radix > 63 && (chars = ']' + chars)
     radix > 62 && (chars = ', [' + chars)
-    radix > 37 && (chars = ', a-' + radix64_chars.value[radix < 62 ? radix-1 : 61] + chars)
-    radix === 37 && (chars = ', a' + chars)
-    radix > 11 && (chars = ', A-' + radix64_chars.value[radix < 36 ? radix-1 : 35] + chars)
-    radix === 11 && (chars = ', A' + chars)
-    radix > 0 && (chars = '0-' + radix64_chars.value[radix < 10 ? radix-1 : 9] + chars)
+    radix > 37 && (chars = '-' + radix64_chars.value[radix < 62 ? radix - 1 : 61] + chars)
+    radix >= 37 && (chars = ', a' + chars)
+    radix > 11 && (chars = '-' + radix64_chars.value[radix < 36 ? radix - 1 : 35] + chars)
+    radix >= 11 && (chars = ', A' + chars)
+    radix > 0 && (chars = '0-' + radix64_chars.value[radix < 10 ? radix - 1 : 9] + chars)
     return chars
 }
 
