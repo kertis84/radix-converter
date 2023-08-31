@@ -1,6 +1,10 @@
 # Калькулятор систем счисления
 
-**[radix-converter](https://radix-converter.netlify.app/)**
+Преобразует числа в системах счисления 2 - 64
+
+**[Ссылка на проект](https://radix-converter.netlify.app/)**
+
+---
 
 This template should help get you started developing with Vue 3 in Vite.
 
