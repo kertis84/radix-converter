@@ -1,6 +1,6 @@
 <template>
     <div class="mt-3">
-        <button class="btn w-50px" v-for="i in 63" :key="i"
+        <button class="btn w-50px" v-for="i in 63" :key="'btn-' + (i + 1)"
             :class="[radix_array.includes(i + 1) ? 'btn-light' : 'btn-outline-light']" @click="emit('toggle-radix', i + 1)">
             {{ i + 1 }}
         </button>
@@ -8,8 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
 interface Props {
     radix_array: Array<number>
 }
@@ -17,8 +15,6 @@ interface Props {
 defineProps<Props>()
 
 const emit = defineEmits<{ (e: 'toggle-radix', radix: number): void }>()
-
-const legendShown = ref(false)
 
 </script>
 
