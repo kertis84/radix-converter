@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form class="mb-3">
         <div class="mt-3 row" v-for="radix in radix_array" :key="'radix-' + radix">
             <label class="col-1 col-form-label text-light text-end" :for="'radix-' + radix">{{ radix }}</label>
             <div class="col-11">
