@@ -12,7 +12,7 @@
             </div>
         </div>
     </div>
-    <div class="copyright"><a href="https://github.com/kertis84/radix-converter/blob/main/LICENSE">Copyright &copy; 2023 kertis84</a></div>
+    <div class="copyright"><a href="https://github.com/kertis84/radix-converter/blob/main/LICENSE" title="MIT License">Copyright &copy; 2023 kertis84</a></div>
 </template>
 
 <script setup lang="ts">
