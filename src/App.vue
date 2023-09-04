@@ -12,6 +12,7 @@
             </div>
         </div>
     </div>
+    <div class="copyright"><a href="https://github.com/kertis84/radix-converter/blob/main/LICENSE">Copyright &copy; 2023 kertis84</a></div>
 </template>
 
 <script setup lang="ts">
@@ -31,6 +32,12 @@ const toggleRadix = (radix: number) => {
 </script>
 
 <style scoped>
+.copyright {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+}
 @media (min-width: 768px) {
     .scrollable {
         max-height: 65vh;
